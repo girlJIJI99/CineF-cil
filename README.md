@@ -23,6 +23,15 @@ git add .
 git commit
 
 
+PARA CAMBIAR LA MEJORA:
+git checkout main (crear una nueva rama)
+git add .
+git commit -m "Agregar función para cancelar reservas"
+git checkout main
+git merge mejora-cancelar
+git push origin main
+
+
 
 ## Requisitos
 
