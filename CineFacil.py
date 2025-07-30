@@ -46,22 +46,38 @@ def mostrar_reservas():
     print("\nReservas hechas hasta el momento:")
     for r in reservas:
         print(f"{r['cliente']} - {r['pelicula']} - {r['hora']} - {r['cantidad']} boletos - Total: Q{r['total']}")
+def cancelar_reserva():
+    nombre = input("Ingresa tu nombre para cancelar la reserva: ")
+    for i, r in enumerate(reservas):
+        if r["cliente"].lower() == nombre.lower():
+            print(f"Cancelando reserva de {r['pelicula']} a las {r['hora']}")
+            reservas.pop(i)
+            print("Reserva cancelada.")
+            return
+    print("No se encontró reserva con ese nombre.")
+
+
 
 def menu():
     while True:
         print("\n--- Sistema CineFácil ---")
         print("1. Hacer una reserva")
         print("2. Mostrar todas las reservas")
-        print("3. Salir")
+        print("3.Cancelar reserva")
+
+        print("4. Salir")
         opcion = input("Selecciona una opción: ")
         if opcion == "1":
             hacer_reserva()
         elif opcion == "2":
             mostrar_reservas()
         elif opcion == "3":
+         cancelar_reserva()
+
+        elif opcion == "4":
             print("¡Gracias por usar CineFácil!")
             break
-        else:
+    else:
             print("Opción no válida, intenta otra vez.")
 
 if __name__ == "__main__":
